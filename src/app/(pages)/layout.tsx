@@ -1,11 +1,15 @@
 import type { Metadata } from "next";
-import { Hahmlet } from "next/font/google";
+import { Hahmlet, Playwrite_DK_Loopet } from "next/font/google";
 import "../globals.css";
 
 const hahmlet = Hahmlet({
   variable: "--font-hahmlet",
   weight: ["300", "400", "700"],
   subsets: ["latin", "latin-ext", "vietnamese"],
+});
+const loopet = Playwrite_DK_Loopet({
+  variable: "--font-loopet",
+  weight: ["100", "200", "300", "400"],
 });
 
 export const metadata: Metadata = {
@@ -20,7 +24,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${hahmlet.variable} antialiased`}>{children}</body>
+      <body
+        className={`${hahmlet.variable} ${loopet.variable} antialiased w-dvw h-dvh`}
+      >
+        {children}
+      </body>
     </html>
   );
 }
