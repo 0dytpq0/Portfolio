@@ -1,11 +1,11 @@
 "use client";
 
 import { useRef, useEffect } from "react";
-import Link from "next/link";
 import { useNeonMenuEffect } from "../_hooks/useNeonMenuEffect";
 
 interface NeonMenuProps {
   isOpen: boolean;
+  onClose: () => void;
 }
 
 interface MenuItem {
@@ -13,24 +13,34 @@ interface MenuItem {
   href: string;
 }
 
-export function MenuItem({ isOpen }: NeonMenuProps) {
+export function MenuItem({ isOpen, onClose }: NeonMenuProps) {
   const menuItems: MenuItem[] = [
-    { label: "about", href: "#about" },
-    { label: "stacks", href: "#stacks" },
-    { label: "projects", href: "#projects" },
-    { label: "more", href: "#more" },
+    { label: "about", href: "about" },
+    { label: "skills", href: "skills" },
+    { label: "projects", href: "projects" },
+    { label: "more", href: "more" },
   ];
 
-  // 각 메뉴 아이템에 대한 ref 배열 생성
-  const menuItemRefs = useRef<(HTMLAnchorElement | null)[]>([]);
+  const menuItemRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
-  // 메뉴 아이템 ref 초기화
   useEffect(() => {
     menuItemRefs.current = menuItemRefs.current.slice(0, menuItems.length);
   }, [menuItems.length]);
 
-  // 네온 메뉴 애니메이션 훅 사용
   useNeonMenuEffect(menuItemRefs, isOpen);
+
+  const handleMenuClick = (
+    e: React.MouseEvent<HTMLButtonElement>,
+    href: string
+  ) => {
+    e.preventDefault();
+    onClose();
+
+    const element = document.getElementById(href);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   return (
     <div
@@ -40,18 +50,18 @@ export function MenuItem({ isOpen }: NeonMenuProps) {
       style={{ background: "transparent" }}
     >
       {menuItems.map((item, index) => (
-        <Link
+        <button
           key={item.label}
-          href={item.href}
+          onClick={(e) => handleMenuClick(e, item.href)}
           ref={(el) => {
             if (menuItemRefs.current) {
               menuItemRefs.current[index] = el;
             }
           }}
-          className="text-[24px] font-hahmlet opacity-0 text-shadow-[0_0_21px_#fff,0_0_42px_#0066ff,0_0_80px_#0066ff]"
+          className="text-[24px] font-hahmlet opacity-0 text-shadow-[0_0_21px_#fff,0_0_42px_#0066ff,0_0_80px_#0066ff] cursor-pointer"
         >
           {item.label}
-        </Link>
+        </button>
       ))}
     </div>
   );
