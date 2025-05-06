@@ -1,11 +1,15 @@
-import { useState, useEffect, RefObject } from 'react';
+import { useState, useEffect, RefObject } from "react";
 
 export function useTabIndicator<T extends string>(
   categories: T[],
   buttonRefs: Record<T, RefObject<HTMLButtonElement | null>>
 ) {
-  const [buttonWidths, setButtonWidths] = useState<{ [key: string]: number }>({});
-  const [buttonPositions, setButtonPositions] = useState<{ [key: string]: number }>({});
+  const [buttonWidths, setButtonWidths] = useState<{ [key: string]: number }>(
+    {}
+  );
+  const [buttonPositions, setButtonPositions] = useState<{
+    [key: string]: number;
+  }>({});
 
   useEffect(() => {
     const updateWidths = () => {
@@ -27,13 +31,10 @@ export function useTabIndicator<T extends string>(
       setButtonPositions(newPositions);
     };
 
-    // Initial measurement
     updateWidths();
 
-    // Add resize listener to handle window size changes
     window.addEventListener("resize", updateWidths);
 
-    // Cleanup
     return () => {
       window.removeEventListener("resize", updateWidths);
     };
