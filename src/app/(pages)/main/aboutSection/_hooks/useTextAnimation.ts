@@ -24,17 +24,23 @@ export function useTextAnimation(options: TextAnimationOptions = {}) {
     threshold = 0.3,
   } = options;
 
-  const grayTextRefs = useRef<(HTMLParagraphElement | null)[]>([]);
-  const whiteTextRefs = useRef<(HTMLParagraphElement | null)[]>([]);
+  const grayTextRefs = useRef<
+    (HTMLParagraphElement | HTMLAnchorElement | null)[]
+  >([]);
+  const whiteTextRefs = useRef<
+    (HTMLParagraphElement | HTMLAnchorElement | null)[]
+  >([]);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const setGrayTextRef =
-    (index: number) => (el: HTMLParagraphElement | null) => {
+    (index: number) =>
+    (el: HTMLParagraphElement | HTMLAnchorElement | null) => {
       grayTextRefs.current[index] = el;
     };
 
   const setWhiteTextRef =
-    (index: number) => (el: HTMLParagraphElement | null) => {
+    (index: number) =>
+    (el: HTMLParagraphElement | HTMLAnchorElement | null) => {
       whiteTextRefs.current[index] = el;
     };
 

@@ -1,11 +1,11 @@
 "use client";
 
-import Link from "next/link";
-import { ContactItem } from "../_data/about";
+import { ContactItem as ContactItemType } from "../_types/about";
 import { useTextAnimation } from "../_hooks/useTextAnimation";
+import { ContactItem } from "./ContactItem";
 
 interface ContactListProps {
-  items: ContactItem[];
+  items: ContactItemType[];
 }
 
 export function ContactList({ items }: ContactListProps) {
@@ -23,59 +23,14 @@ export function ContactList({ items }: ContactListProps) {
         </h3>
         {/* 연락처 섹션 */}
         <ul className="space-y-2">
-          {items.map((item, idx) => {
-            return (
-              <li key={item.label} className="relative">
-                <div className="relative">
-                  <span
-                    ref={setGrayTextRef(idx)}
-                    className="text-gray-400 opacity-0 absolute top-0 left-0"
-                  >
-                    {item.link ? (
-                      <Link
-                        className="text-blue-300 cursor-pointer hover:text-blue-500"
-                        href={item.link}
-                      >
-                        {item.label}
-                      </Link>
-                    ) : (
-                      `${item.label} : ${item.value}`
-                    )}
-                  </span>
-
-                  <span
-                    ref={setWhiteTextRef(idx)}
-                    className="opacity-0 absolute top-0 left-0"
-                  >
-                    {item.link ? (
-                      <Link
-                        className="text-blue-300 cursor-pointer hover:text-blue-500"
-                        href={item.link}
-                      >
-                        {item.label}
-                      </Link>
-                    ) : (
-                      `${item.label} : ${item.value}`
-                    )}
-                  </span>
-
-                  {/* 공간 확보용 */}
-                  <span className="invisible">
-                    {item.link ? (
-                      <Link
-                        className="text-blue-300 cursor-pointer hover:text-blue-500"
-                        href={item.link}
-                      >
-                        {item.label}
-                      </Link>
-                    ) : (
-                      `${item.label} : ${item.value}`
-                    )}
-                  </span>
-                </div>
-              </li>
-            );
-          })}
+          {items.map((item, idx) => (
+            <ContactItem
+              key={item.label}
+              item={item}
+              grayTextRef={setGrayTextRef(idx)}
+              whiteTextRef={setWhiteTextRef(idx)}
+            />
+          ))}
         </ul>
       </div>
     </div>

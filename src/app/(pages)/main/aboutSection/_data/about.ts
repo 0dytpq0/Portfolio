@@ -1,12 +1,4 @@
-export interface AboutParagraph {
-  text: string;
-}
-
-export interface ContactItem {
-  label: string;
-  value: string;
-  link?: string;
-}
+import { AboutParagraph, ContactItem } from "../_types/about";
 
 export const aboutParagraphs: AboutParagraph[] = [
   {
