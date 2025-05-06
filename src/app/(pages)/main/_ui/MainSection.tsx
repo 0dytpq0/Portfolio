@@ -1,7 +1,7 @@
 import React from "react";
 import { BsArrowDown } from "react-icons/bs";
-import { NeonTitle } from "./NeonTitle";
-import { Menu } from "./Menu";
+import Menu from "./Menu";
+import NeonTitle from "./NeonTitle";
 
 export function MainSection() {
   return (

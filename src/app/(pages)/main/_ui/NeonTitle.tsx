@@ -7,7 +7,7 @@ interface NeonTextProps {
   text: string;
 }
 
-export function NeonTitle({ text }: NeonTextProps) {
+export default function NeonTitle({ text }: NeonTextProps) {
   const sElementRef = useRef<HTMLSpanElement>(null);
   const pElementRef = useRef<HTMLSpanElement>(null);
 

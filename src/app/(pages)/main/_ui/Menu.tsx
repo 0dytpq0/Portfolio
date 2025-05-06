@@ -2,9 +2,9 @@
 
 import { useState } from "react";
 import { BsList, BsX } from "react-icons/bs";
-import { MenuItem } from "./MenuItem";
+import MenuItem from "./MenuItem";
 
-export function Menu() {
+export default function Menu() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
