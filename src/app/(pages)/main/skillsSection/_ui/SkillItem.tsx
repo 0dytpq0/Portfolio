@@ -1,11 +1,7 @@
 import Image from "next/image";
-import { SkillItem as SkillItemType } from "../_types";
+import { SkillItem as SkillItemProps } from "../_types/skills";
 
-interface SkillItemProps {
-  skill: SkillItemType;
-}
-
-export function SkillItem({ skill }: SkillItemProps) {
+export function SkillItem({ skill }: { skill: SkillItemProps }) {
   return (
     <div className="flex gap-x-4 items-center" key={skill.name}>
       <Image src={skill.image} alt={skill.name} width={50} height={50} />

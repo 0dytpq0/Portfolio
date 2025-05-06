@@ -1,6 +1,6 @@
 import { cn } from "@/app/shared/lib/cn";
 import { CSSProperties, RefObject } from "react";
-import { SkillCategory } from "../_types";
+import { SkillCategory } from "../_types/skills";
 
 interface SkillTabsProps {
   categories: SkillCategory[];

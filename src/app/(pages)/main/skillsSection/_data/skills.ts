@@ -1,4 +1,4 @@
-import { SkillCategory, SkillItem } from "../_types";
+import { SkillCategory, SkillItem } from "../_types/skills";
 
 export const skills: Record<SkillCategory, SkillItem[]> = {
   language: [

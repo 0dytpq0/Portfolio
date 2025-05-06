@@ -1,8 +1,8 @@
 "use client";
 
-import { useRef } from "react";
+import { MouseEvent, useRef } from "react";
+import { menuItems } from "../_data/rending";
 import { useNeonMenuEffect } from "../_hooks/useNeonMenuEffect";
-import { menuItems } from "../_data/main";
 
 interface NeonMenuProps {
   isOpen: boolean;
@@ -14,10 +14,7 @@ export default function MenuItem({ isOpen, onClose }: NeonMenuProps) {
 
   useNeonMenuEffect(menuItemRefs, isOpen);
 
-  const handleMenuClick = (
-    e: React.MouseEvent<HTMLButtonElement>,
-    href: string
-  ) => {
+  const handleMenuClick = (e: MouseEvent<HTMLButtonElement>, href: string) => {
     e.preventDefault();
     e.stopPropagation();
 

@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useState, useRef, useMemo } from "react";
-import { SkillCategory } from "../_types";
-import { categories, skills } from "../_data";
-import { useTabIndicator } from "../_hooks";
+import { SkillCategory } from "../_types/skills";
+import { categories, skills } from "../_data/skills";
+import { useTabIndicator } from "../_hooks/useTabIndicator";
 import { SkillTabs } from "./SkillTabs";
 import { SkillsContent } from "./SkillsContent";
 

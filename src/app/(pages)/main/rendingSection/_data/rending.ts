@@ -1,4 +1,4 @@
-import { MenuItem } from "../_types";
+import { MenuItem } from "../_types/rending";
 
 export const menuItems: MenuItem[] = [
   { label: "about", href: "about" },

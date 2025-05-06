@@ -1,4 +1,6 @@
-import { MainSection, AboutSection, SkillsSection } from "./_ui";
+import { AboutSection } from "./aboutSection/_ui/AboutSection";
+import { MainSection } from "./rendingSection/_ui/MainSection";
+import { SkillsSection } from "./skillsSection/_ui/SkillsSection";
 
 export default function Home() {
   return (
