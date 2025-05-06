@@ -1,6 +1,7 @@
+import { deepFreeze } from "@/app/shared/lib";
 import { AboutParagraph, ContactItem } from "../_types/about";
 
-export const aboutParagraphs: AboutParagraph[] = [
+export const aboutParagraphs: AboutParagraph[] = deepFreeze([
   {
     text: "안녕하세요, 프론트엔드 개발자 박요셉입니다.",
   },
@@ -10,9 +11,9 @@ export const aboutParagraphs: AboutParagraph[] = [
   {
     text: "문제를 미리 예방할 수 있도록 고심하며 개발하고, UX/UI를 기반으로 최적의 사용자 경험을 제공하기 위해 노력합니다.",
   },
-];
+]);
 
-export const contactItems: ContactItem[] = [
+export const contactItems: ContactItem[] = deepFreeze([
   {
     label: "Email",
     value: "rkfnahs12e@gmail.com",
@@ -31,4 +32,4 @@ export const contactItems: ContactItem[] = [
     value: "Blog",
     link: "https://velog.io/@0dytpq0/posts",
   },
-];
+]);
