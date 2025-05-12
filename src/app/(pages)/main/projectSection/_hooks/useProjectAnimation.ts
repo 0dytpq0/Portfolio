@@ -1,76 +1,54 @@
-"use client";
+'use client';
 
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
 
-export const useProjectAnimation = () => {
-  const sectionRef = useRef<HTMLDivElement>(null);
+export const useProjectAnimation = (activeProject: number) => {
+  const projectRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const projectTitle = document.querySelector(".project-title");
-            const projectImage = document.querySelector(".project-image");
-            const projectInfo = document.querySelector(".project-info");
-            const projectDesc = document.querySelector(".project-desc");
-            const projectButtons = document.querySelector(".button-box");
+    if (projectRef.current) {
+      const projectTitle = document.querySelector('.project-title');
+      const projectImage = document.querySelector('.project-image');
+      const projectInfo = document.querySelector('.project-info');
+      const projectDesc = document.querySelector('.project-desc');
+      const projectButtons = document.querySelector('.button-box');
 
-            if (
-              projectTitle &&
-              projectImage &&
-              projectInfo &&
-              projectDesc &&
-              projectButtons
-            ) {
-              gsap.set(
-                [
-                  projectTitle,
-                  projectImage,
-                  projectInfo,
-                  projectDesc,
-                  projectButtons,
-                ],
-                {
-                  opacity: 0,
-                  y: 30,
-                }
-              );
-
-              gsap.to(
-                [
-                  projectTitle,
-                  projectImage,
-                  projectInfo,
-                  projectDesc,
-                  projectButtons,
-                ],
-                {
-                  opacity: 1,
-                  y: 0,
-                  duration: 2,
-                  stagger: 0.3,
-                  ease: "power2.out",
-                }
-              );
-            }
-
-            observer.disconnect();
+      if (projectTitle && projectImage && projectInfo && projectDesc) {
+        // 초기 상태 설정
+        gsap.set(
+          [
+            projectTitle,
+            projectImage,
+            projectInfo,
+            projectDesc,
+            projectButtons,
+          ],
+          {
+            opacity: 0,
+            y: 30,
           }
-        });
-      },
-      { threshold: 0.2 }
-    );
+        );
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
+        gsap.to(
+          [
+            projectTitle,
+            projectImage,
+            projectInfo,
+            projectDesc,
+            projectButtons,
+          ],
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            stagger: 0.2,
+            ease: 'power2.out',
+          }
+        );
+      }
     }
+  }, [activeProject]);
 
-    return () => {
-      observer.disconnect();
-    };
-  }, []);
-
-  return { sectionRef };
+  return { projectRef };
 };

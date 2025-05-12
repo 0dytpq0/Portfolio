@@ -1,15 +1,15 @@
-"use client";
+'use client';
 
-import React, { useState, useRef, useMemo } from "react";
-import { SkillCategory } from "../_types/skills";
-import { categories, skills } from "../_data/skills";
-import { useTabIndicator } from "../_hooks/useTabIndicator";
-import { SkillTabs } from "./SkillTabs";
-import { SkillsContent } from "./SkillsContent";
+import React, { useState, useRef, useMemo } from 'react';
+import { SkillCategory } from '../_types/skills';
+import { categories, skills } from '../_data/skills';
+import { useTabIndicator } from '../_hooks/useTabIndicator';
+import { SkillTabs } from './SkillTabs';
+import { SkillsContent } from './SkillsContent';
 
 export function SkillsSection() {
   const [activeCategory, setActiveCategory] =
-    useState<SkillCategory>("language");
+    useState<SkillCategory>('language');
 
   const languageRef = useRef<HTMLButtonElement>(null);
   const frontendRef = useRef<HTMLButtonElement>(null);
@@ -32,11 +32,11 @@ export function SkillsSection() {
 
   return (
     <section
-      id="skills"
-      className="w-full h-[100dvh] flex flex-col items-center justify-center px-8 bg-black text-white snap-start"
+      id='skills'
+      className='w-full h-[100dvh] flex flex-col items-center justify-center px-8 text-white snap-start'
     >
-      <div className="w-full px-8 h-dvh py-16 flex flex-col justify-center">
-        <h2 className="text-4xl font-bold mb-8 text-blue-400 font-loopet">
+      <div className='w-full px-8 h-dvh py-16 flex flex-col justify-center'>
+        <h2 className='text-4xl font-bold mb-8 text-blue-400 font-loopet'>
           Skills
         </h2>
 
@@ -53,3 +53,4 @@ export function SkillsSection() {
     </section>
   );
 }
+

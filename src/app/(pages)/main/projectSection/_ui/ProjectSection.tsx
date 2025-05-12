@@ -6,28 +6,28 @@ import React from 'react';
 import { projects } from '../_data/projects';
 
 // 커스텀 훅 임포트
-import { useProjectAnimation } from '../_hooks/useProjectAnimation';
-import { useProjectNavigation } from '../_hooks/useProjectNavigation';
-import { useProjectTransitionAnimation } from '../_hooks/useProjectTransitionAnimation';
 
 // UI 컴포넌트 임포트
 import { ProjectNavigation } from './ProjectNavigation';
 import { ProjectMedia } from './ProjectMedia';
 import { ProjectDetails } from './ProjectDetails';
+import { useRenderAnimation } from '../_hooks/useRenderAnimation';
+import { useProjectNavigation } from '../_hooks/useProjectNavigation';
+import { useProjectAnimation } from '../_hooks/useProjectAnimation';
 
 export function ProjectSection() {
-  // 커스텀 훅 사용
-  const { sectionRef } = useProjectAnimation();
+  const { sectionRef } = useRenderAnimation();
   const { activeProject, isAnimating, changeProject } =
     useProjectNavigation(projects);
-  const { projectRef } = useProjectTransitionAnimation(activeProject);
+  const { projectRef } = useProjectAnimation(activeProject);
 
   const currentProject = projects[activeProject];
 
   return (
-    <div
+    <section
+      id='projects'
       ref={sectionRef}
-      className='w-full h-dvh bg-[#eee9e9] snap-start relative mx-auto '
+      className='w-full h-dvh bg-[#eee9e9] snap-start relative'
     >
       <ProjectNavigation
         onPrev={() => changeProject('prev')}
@@ -41,12 +41,12 @@ export function ProjectSection() {
 
       <div
         ref={projectRef}
-        className='w-full h-dvh flex items-center gap-x-40 z-10 px-30 mx-auto max-w-[1366px]'
+        className='w-full h-full flex items-center gap-x-40 z-10 px-30 mx-auto max-w-[1366px]'
       >
         <ProjectMedia project={currentProject} />
 
         <ProjectDetails project={currentProject} index={activeProject} />
       </div>
-    </div>
+    </section>
   );
 }
