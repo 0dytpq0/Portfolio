@@ -1,9 +1,9 @@
-import { AboutSection } from './aboutSection/_ui/AboutSection';
-import MoreSection from './moreSection/_ui/MoreSection';
-import NeonParticles from './neonParticle/_ui/NeonParticles';
-import { ProjectSection } from './projectSection/_ui/ProjectSection';
-import { MainSection } from './rendingSection/_ui/MainSection';
-import { SkillsSection } from './skillsSection/_ui/SkillsSection';
+import { AboutSection } from './_aboutSection/_ui/AboutSection';
+import MoreSection from './_moreSection/_ui/MoreSection';
+import NeonParticles from './_neonParticle/_ui/NeonParticles';
+import { ProjectSection } from './_projectSection/_ui/ProjectSection';
+import { MainSection } from './_rendingSection/_ui/MainSection';
+import { SkillsSection } from './_skillsSection/_ui/SkillsSection';
 
 export default function Home() {
   return (
