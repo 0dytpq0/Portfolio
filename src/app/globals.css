@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 @layer utilities {
 }
@@ -8,4 +8,8 @@
 
 .font-loopet {
   font-family: var(--font-loopet), sans-serif;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
