@@ -1,6 +1,7 @@
 export interface NavigationItem {
   id: number;
   title: string;
-  description: string;
+  reason: string;
+  solve: string;
   delay?: number;
 }

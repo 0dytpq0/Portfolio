@@ -3,8 +3,8 @@
 import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ProjectItem } from '../_types/project';
 import { useMediaAnimation } from '../_hooks/useMediaAnimation';
+import { ProjectItem } from '@/app/shared';
 
 interface ProjectMediaProps {
   project: ProjectItem;
@@ -12,7 +12,7 @@ interface ProjectMediaProps {
 
 export function ProjectMedia({ project }: ProjectMediaProps) {
   const { imageContainerRef } = useMediaAnimation(project.images.length);
-
+  console.log('project', project);
   return (
     <div className='flex flex-col items-end gap-y-8'>
       <div
@@ -36,13 +36,13 @@ export function ProjectMedia({ project }: ProjectMediaProps) {
       </div>
       <div className='button-box flex items-center gap-x-4'>
         <Link
-          href={project.github}
+          href={project.gitHub}
           className='p-2 border-2 border-[#dadada] rounded-lg hover:invert-25 transition-colors cursor-pointer'
         >
           Github
         </Link>
         <Link
-          href={project.site}
+          href={project.address}
           className='p-2 border-2 border-[#dadada] rounded-lg hover:invert-25 transition-colors cursor-pointer'
         >
           Site

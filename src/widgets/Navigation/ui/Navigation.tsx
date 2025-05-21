@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { BsArrowLeftShort, BsArrowRightShort } from 'react-icons/bs';
-import { cn } from '../../lib';
+import { cn } from '@/app/shared/lib';
 
 interface NavigationProps {
   onPrev: () => void;

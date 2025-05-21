@@ -1,7 +1,7 @@
 'use client';
 
+import { ProjectItem } from '@/app/shared';
 import React from 'react';
-import { ProjectItem } from '../_types/project';
 
 interface ProjectDetailsProps {
   project: ProjectItem;
@@ -21,7 +21,6 @@ export function ProjectDetails({ project, index }: ProjectDetailsProps) {
         </h2>
       </div>
       <div className='project-desc pl-4'>
-        <h3 className='text-xl mb-3 whitespace-nowrap'>{project.title}</h3>
         <p className='text-gray-700 max-w-xl leading-relaxed'>
           {project.description}
         </p>

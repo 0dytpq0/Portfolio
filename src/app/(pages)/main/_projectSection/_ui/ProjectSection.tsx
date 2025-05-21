@@ -2,28 +2,19 @@
 
 import React from 'react';
 
-// 타입 및 데이터 임포트
-import { projects } from '../_data/projects';
-
-// 커스텀 훅 임포트
-
-// UI 컴포넌트 임포트
 import { ProjectMedia } from './ProjectMedia';
 import { ProjectDetails } from './ProjectDetails';
 import { useRenderAnimation } from '../_hooks/useRenderAnimation';
 import { useProjectAnimation } from '../_hooks/useProjectAnimation';
-import { Navigation } from '@/app/shared/navigation/ui/Navigation';
-import { useNavigation } from '@/app/shared';
-import { ProjectItem } from '../_types/project';
+import { Navigation, useNavigation } from '@/widgets';
+import { PROJECT } from '@/app/shared';
 
 export function ProjectSection() {
   const { sectionRef } = useRenderAnimation();
-  const { activeItem, isAnimating, changeItem } =
-    useNavigation<ProjectItem>(projects);
+  const { activeItem, isAnimating, changeItem } = useNavigation(PROJECT);
   const { projectRef } = useProjectAnimation(activeItem);
 
-  const currentProject = projects[activeItem];
-
+  const currentProject = PROJECT[activeItem];
   return (
     <section
       id='projects'
