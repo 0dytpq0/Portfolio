@@ -1,3 +1,4 @@
+import IconButton from '@/widgets/IconButton';
 import Image from 'next/image';
 
 export default function ProjectSection() {
@@ -17,9 +18,28 @@ export default function ProjectSection() {
           />
         </div>
         <div className='flex items-center gap-x-4 w-full'>
-          <button className='px-4 py-2 border-2 border-black'>github</button>
-          <button className='px-4 py-2 border-2 border-black'>Site</button>
-          <button className='px-4 py-2 border-2 border-black'>Notion</button>
+          <IconButton
+            src='/skills/github.svg'
+            alt='github'
+            width={40}
+            height={40}
+            address='https://github.com/0dytpq0'
+          />
+
+          <IconButton
+            src='/skills/website.svg'
+            alt='website'
+            width={40}
+            height={40}
+            address='https://github.com/0dytpq0'
+          />
+          <IconButton
+            src='/skills/notion.svg'
+            alt='notion'
+            width={40}
+            height={40}
+            address='https://github.com/0dytpq0'
+          />
         </div>
       </div>
       <div className='flex-1 flex flex-col gap-4 glaze-bg p-6'>
