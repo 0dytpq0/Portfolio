@@ -8,20 +8,21 @@ import { projects } from '../_data/projects';
 // 커스텀 훅 임포트
 
 // UI 컴포넌트 임포트
-import { ProjectNavigation } from './ProjectNavigation';
 import { ProjectMedia } from './ProjectMedia';
 import { ProjectDetails } from './ProjectDetails';
 import { useRenderAnimation } from '../_hooks/useRenderAnimation';
-import { useProjectNavigation } from '../_hooks/useProjectNavigation';
 import { useProjectAnimation } from '../_hooks/useProjectAnimation';
+import { Navigation } from '@/app/shared/navigation/ui/Navigation';
+import { useNavigation } from '@/app/shared';
+import { ProjectItem } from '../_types/project';
 
 export function ProjectSection() {
   const { sectionRef } = useRenderAnimation();
-  const { activeProject, isAnimating, changeProject } =
-    useProjectNavigation(projects);
-  const { projectRef } = useProjectAnimation(activeProject);
+  const { activeItem, isAnimating, changeItem } =
+    useNavigation<ProjectItem>(projects);
+  const { projectRef } = useProjectAnimation(activeItem);
 
-  const currentProject = projects[activeProject];
+  const currentProject = projects[activeItem];
 
   return (
     <section
@@ -29,10 +30,13 @@ export function ProjectSection() {
       ref={sectionRef}
       className='w-full h-dvh bg-[#eee9e9] snap-start relative'
     >
-      <ProjectNavigation
-        onPrev={() => changeProject('prev')}
-        onNext={() => changeProject('next')}
+      <Navigation
+        onPrev={() => changeItem('prev')}
+        onNext={() => changeItem('next')}
         isDisabled={isAnimating}
+        wrapperClassName='absolute bottom-1/2 w-full flex justify-between px-20 z-20 min-w-[1366px]'
+        buttonClassName='arrow-left w-12 h-12 flex items-center justify-center rounded-full transition-all backdrop-blur-2xl hover:invert cursor-pointer '
+        iconize={50}
       />
 
       <h1 className='project-title absolute mx-auto top-[10%] text-9xl font-bold mb-8 text-[#dadada] font-loopet '>
@@ -45,7 +49,7 @@ export function ProjectSection() {
       >
         <ProjectMedia project={currentProject} />
 
-        <ProjectDetails project={currentProject} index={activeProject} />
+        <ProjectDetails project={currentProject} index={activeItem} />
       </div>
     </section>
   );
