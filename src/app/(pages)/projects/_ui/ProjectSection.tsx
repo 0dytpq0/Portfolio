@@ -2,8 +2,8 @@ import Image from 'next/image';
 
 export default function ProjectSection() {
   return (
-    <div className='main-panel w-full h-full absolute inset-0 bg-gray-300 flex rounded-t-3xl p-5'>
-      <div className='w-[600px] min-w-[400px] px-4 flex flex-col gap-y-4'>
+    <div className='main-panel w-full h-full p-4 absolute inset-0 bg-black flex gap-4 rounded-t-3xl text-white'>
+      <div className='w-[600px] min-w-[400px] flex flex-col gap-y-4 glaze-bg p-6'>
         <h1 className='font-loopet text-6xl'>Travel Story</h1>
         <div className='text-lg flex justify-end  w-full text-[#919191] '>
           2024.09~~~2025.05
@@ -22,7 +22,7 @@ export default function ProjectSection() {
           <button className='px-4 py-2 border-2 border-black'>Notion</button>
         </div>
       </div>
-      <div className='flex-1 flex flex-col gap-4 pl-8'>
+      <div className='flex-1 flex flex-col gap-4 glaze-bg p-6'>
         <div className='flex gap-2 justify-between'>
           <div className='flex-1 flex flex-col gap-y-2'>
             <h2 className='text-2xl font-bold'>프로젝트 소개</h2>
