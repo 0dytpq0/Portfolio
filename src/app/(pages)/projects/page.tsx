@@ -6,6 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ReactLenis from 'lenis/react';
 import { useRef } from 'react';
 import ProjectSection from './_ui/ProjectSection';
+import { PROJECT } from '@/app/shared';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -23,7 +24,7 @@ export default function ProjectsPage() {
           trigger: '.panels-container',
           start: 'top top',
           end: () => `+=${(panels.length + 0.5) * 100}%`,
-          toggleActions: 'play none play none',
+          toggleActions: 'play none none none',
           pin: true,
           pinSpacing: true,
           scrub: 3,
@@ -40,25 +41,17 @@ export default function ProjectsPage() {
 
     { scope: containerRef }
   );
-  // i === 0 ? main-panel : sub-panel로 구분
   return (
     <ReactLenis root>
       <div className='h-dvh w-dvw' ref={containerRef}>
         <div className='panels-container w-full h-full relative overflow-hidden'>
-          <ProjectSection />
-          <div className='sub-panel opacity-0  w-full h-full absolute inset-0 bg-red-300 flex items-center justify-center rounded-t-3xl'>
-            두 번째 섹션
-          </div>
-
-          <div className='sub-panel opacity-0  w-full h-full absolute inset-0 bg-green-300 flex items-center justify-center rounded-t-3xl'>
-            세 번째 섹션
-          </div>
-          <div
-            id='fourth-section'
-            className='sub-panel opacity-0  w-full h-full absolute inset-0 bg-blue-300 flex items-center justify-center rounded-t-3xl'
-          >
-            네 번째 섹션
-          </div>
+          {PROJECT.map((project, index) => (
+            <ProjectSection
+              key={index}
+              projectData={project}
+              panelType={index === 0 ? 'main-panel' : 'sub-panel'}
+            />
+          ))}
         </div>
       </div>
     </ReactLenis>
