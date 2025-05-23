@@ -4,7 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useMediaAnimation } from '../_hooks/useMediaAnimation';
-import { ProjectItem } from '@/app/shared';
+import { ProjectItem } from '@/shared';
 
 interface ProjectMediaProps {
   project: ProjectItem;

@@ -1,7 +1,7 @@
 'use client';
 
 import ReactLenis from 'lenis/react';
-import { ProjectItem } from '@/app/shared';
+import { ProjectItem } from '@/shared';
 import useProjectPanelsAnimation from './_hooks/useProjectPanelsAnimation';
 import ProjectSection from './_ui/ProjectSection';
 

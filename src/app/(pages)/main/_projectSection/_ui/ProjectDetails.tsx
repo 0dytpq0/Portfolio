@@ -1,6 +1,6 @@
 'use client';
 
-import { ProjectItem } from '@/app/shared';
+import { ProjectItem } from '@/shared';
 import React from 'react';
 
 interface ProjectDetailsProps {

@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import IconButton from '@/widgets/IconButton';
-import { ProjectItem } from '@/app/shared';
-import { cn } from '@/app/shared/lib';
+import { ProjectItem } from '@/shared';
+import { cn } from '@/shared/lib';
 
 interface LeftSectionProps {
   projectData: ProjectItem;

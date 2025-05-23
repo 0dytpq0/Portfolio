@@ -1,5 +1,5 @@
 import ProjectPanels from './ProjectPanels';
-import { PROJECT } from '@/app/shared';
+import { PROJECT } from '@/shared';
 
 export default function ProjectsPage({ params }: { params: { name: string } }) {
   const { name } = params;

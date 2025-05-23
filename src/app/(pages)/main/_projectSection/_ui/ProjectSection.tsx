@@ -7,7 +7,7 @@ import { ProjectDetails } from './ProjectDetails';
 import { useRenderAnimation } from '../_hooks/useRenderAnimation';
 import { useProjectAnimation } from '../_hooks/useProjectAnimation';
 import { Navigation, useNavigation } from '@/widgets';
-import { PROJECT } from '@/app/shared';
+import { PROJECT } from '@/shared';
 
 export default function ProjectSection() {
   const { sectionRef } = useRenderAnimation();

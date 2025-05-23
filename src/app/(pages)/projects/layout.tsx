@@ -1,4 +1,4 @@
-import { PROJECT } from '@/app/shared';
+import { PROJECT } from '@/shared';
 import type { Metadata } from 'next';
 
 export async function generateMetadata(): Promise<Metadata> {

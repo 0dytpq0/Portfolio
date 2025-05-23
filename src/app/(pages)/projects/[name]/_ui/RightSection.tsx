@@ -1,7 +1,7 @@
 import Image from 'next/image';
-import { ProjectItem } from '@/app/shared';
+import { ProjectItem } from '@/shared';
 import { Navigation, useNavigation } from '@/widgets';
-import { cn } from '@/app/shared/lib';
+import { cn } from '@/shared/lib';
 
 interface RightSectionProps {
   projectData: ProjectItem;

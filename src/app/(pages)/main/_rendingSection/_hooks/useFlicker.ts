@@ -1,6 +1,6 @@
 'use client';
 
-import { shuffleArray } from '@/app/shared/lib/shuffleArray';
+import { shuffleArray } from '@/shared/lib/shuffleArray';
 import gsap from 'gsap';
 
 const flickerPoints = [

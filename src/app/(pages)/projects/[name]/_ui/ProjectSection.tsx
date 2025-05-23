@@ -1,6 +1,6 @@
 import React from 'react';
-import { ProjectItem } from '@/app/shared';
-import { cn } from '@/app/shared/lib';
+import { ProjectItem } from '@/shared';
+import { cn } from '@/shared/lib';
 import { LeftSection } from './LeftSection';
 import { RightSection } from './RightSection';
 

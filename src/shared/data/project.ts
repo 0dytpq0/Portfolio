@@ -1,5 +1,5 @@
-import { deepFreeze } from '@/app/shared';
-import { ProjectItem } from '@/app/shared/types';
+import { deepFreeze } from '@/shared';
+import { ProjectItem } from '@/shared/types';
 
 export const PROJECT = deepFreeze<ProjectItem[]>([
   {

@@ -1,4 +1,4 @@
-import { deepFreeze } from '@/app/shared/lib';
+import { deepFreeze } from '@/shared/lib';
 import { SkillCategory, SkillItem } from '../_types/skills';
 
 export const skills: Record<SkillCategory, SkillItem[]> = deepFreeze({
