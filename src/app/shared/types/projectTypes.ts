@@ -18,7 +18,6 @@ export interface ProjectItem {
   duration: string;
   gitHub: string;
   address: string;
-  more: string;
   description: string;
   images: string[];
   skills: string[];

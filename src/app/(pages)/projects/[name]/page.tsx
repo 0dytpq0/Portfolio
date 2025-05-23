@@ -5,8 +5,8 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ReactLenis from 'lenis/react';
 import { useRef } from 'react';
-import ProjectSection from './_ui/ProjectSection';
 import { PROJECT } from '@/app/shared';
+import ProjectSection from '../_ui/ProjectSection';
 
 gsap.registerPlugin(ScrollTrigger);
 
