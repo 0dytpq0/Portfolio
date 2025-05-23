@@ -1,9 +1,9 @@
 'use client';
 
 import ReactLenis from 'lenis/react';
-import ProjectSection from '../_ui/ProjectSection';
-import useProjectPanelsAnimation from '../_hooks/useProjectPanelsAnimation';
 import { ProjectItem } from '@/app/shared';
+import useProjectPanelsAnimation from './_hooks/useProjectPanelsAnimation';
+import ProjectSection from './_ui/ProjectSection';
 
 interface ProjectPanelsProps {
   projectIdx: number;
