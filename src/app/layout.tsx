@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Hahmlet, Playwrite_DK_Loopet } from 'next/font/google';
-import '../globals.css';
+import './globals.css';
 
 const hahmlet = Hahmlet({
   variable: '--font-hahmlet',
