@@ -12,7 +12,6 @@ interface ProjectMediaProps {
 
 export function ProjectMedia({ project }: ProjectMediaProps) {
   const { imageContainerRef } = useMediaAnimation(project.images.length);
-  console.log('project', project);
   return (
     <div className='flex flex-col items-end gap-y-8'>
       <div

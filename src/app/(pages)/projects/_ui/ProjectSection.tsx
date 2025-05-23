@@ -1,3 +1,4 @@
+import React from 'react';
 import { ProjectItem } from '@/app/shared';
 import { cn } from '@/app/shared/lib';
 import { LeftSection } from './LeftSection';
@@ -14,6 +15,7 @@ export default function ProjectSection({
 }: ProjectSectionProps) {
   return (
     <div
+      id={projectData.name}
       className={cn(
         'w-full h-full bg-black p-4 absolute inset-0 flex gap-4 rounded-t-3xl',
         panelType,

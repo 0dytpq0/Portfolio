@@ -6,12 +6,16 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ReactLenis from 'lenis/react';
 import { useRef } from 'react';
 import { PROJECT } from '@/app/shared';
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import ProjectSection from '../_ui/ProjectSection';
+import { useParams } from 'next/navigation';
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 export default function ProjectsPage() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const { name } = useParams();
+  const projectIdx = PROJECT.findIndex((project) => project.name === name);
 
   useGSAP(
     () => {
@@ -37,10 +41,16 @@ export default function ProjectsPage() {
           duration: 1,
         });
       });
+      const targetY = window.innerHeight * projectIdx;
+      gsap.to(window, {
+        duration: 1.5 * projectIdx,
+        scrollTo: targetY,
+      });
     },
 
     { scope: containerRef }
   );
+
   return (
     <ReactLenis root>
       <div className='h-dvh w-dvw' ref={containerRef}>
