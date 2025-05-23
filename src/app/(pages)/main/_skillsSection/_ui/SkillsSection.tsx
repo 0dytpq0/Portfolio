@@ -7,7 +7,7 @@ import { useTabIndicator } from '../_hooks/useTabIndicator';
 import { SkillTabs } from './SkillTabs';
 import { SkillsContent } from './SkillsContent';
 
-export function SkillsSection() {
+export default function SkillsSection() {
   const [activeCategory, setActiveCategory] =
     useState<SkillCategory>('language');
 

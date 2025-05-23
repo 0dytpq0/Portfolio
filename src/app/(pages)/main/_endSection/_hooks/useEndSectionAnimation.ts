@@ -12,54 +12,18 @@ if (typeof window !== 'undefined') {
 interface MoreSectionRefs {
   sectionRef: RefObject<HTMLElement | null>;
   titleRef: RefObject<HTMLHeadingElement | null>;
-  leftBoxRef: RefObject<HTMLDivElement | null>;
-  rightBoxRef: RefObject<HTMLDivElement | null>;
 }
 
-export const useMoreSectionAnimation = ({
+export const useEndSectionAnimation = ({
   sectionRef,
   titleRef,
-  leftBoxRef,
-  rightBoxRef,
 }: MoreSectionRefs) => {
   useEffect(() => {
     const titleElement = titleRef.current;
-    const leftBoxElement = leftBoxRef.current;
-    const rightBoxElement = rightBoxRef.current;
     const sectionElement = sectionRef.current;
 
     const runAnimation = () => {
-      if (!titleElement || !leftBoxElement || !rightBoxElement) return;
-
-      const animateBoxes = () => {
-        const boxes = [leftBoxElement, rightBoxElement];
-
-        // 초기 상태 설정 - 박스들이 위에서 시작
-        gsap.set(boxes, {
-          y: -40,
-          opacity: 0,
-          rotation: 0,
-        });
-
-        const tl = gsap.timeline();
-
-        tl.to(boxes, {
-          y: 0,
-          opacity: 1,
-          duration: 1,
-          stagger: 0.3,
-        });
-
-        boxes.forEach((box, index) => {
-          gsap.to(box, {
-            rotation: index === 0 ? 1 : -1,
-            duration: 0.2,
-            repeat: -1,
-            yoyo: true,
-            delay: index * 0.2,
-          });
-        });
-      };
+      if (!titleElement) return;
 
       const splitText = SplitText.create(titleElement, { type: 'words,chars' });
 
@@ -69,7 +33,6 @@ export const useMoreSectionAnimation = ({
         autoAlpha: 0,
         stagger: 0.05,
         ease: 'power3.out',
-        onComplete: animateBoxes,
       });
     };
 
@@ -93,9 +56,6 @@ export const useMoreSectionAnimation = ({
       observer.disconnect();
 
       gsap.killTweensOf(titleElement);
-      if (leftBoxElement && rightBoxElement) {
-        gsap.killTweensOf([leftBoxElement, rightBoxElement]);
-      }
     };
-  }, [sectionRef, titleRef, leftBoxRef, rightBoxRef]);
+  }, [sectionRef, titleRef]);
 };

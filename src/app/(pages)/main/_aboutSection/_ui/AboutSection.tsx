@@ -2,7 +2,7 @@ import { aboutParagraphs, contactItems } from '../_data/about';
 import { Greeting } from './Greeting';
 import { ContactList } from './ContactList';
 
-export function AboutSection() {
+export default function AboutSection() {
   return (
     <section
       id='about'

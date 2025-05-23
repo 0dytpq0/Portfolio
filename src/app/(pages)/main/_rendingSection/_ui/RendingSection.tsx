@@ -4,7 +4,7 @@ import RendingOverlay from './RendingOverlay';
 import Subtitle from './Subtitle';
 import { BsArrowDown } from 'react-icons/bs';
 
-export function RendingSection() {
+export default function RendingSection() {
   return (
     <section className="w-full h-[100dvh] flex flex-col items-center px-8 text-white relative snap-start bg-[url('/bg-img.webp')] bg-cover bg-center">
       <RendingOverlay />

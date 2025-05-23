@@ -9,7 +9,7 @@ import { useProjectAnimation } from '../_hooks/useProjectAnimation';
 import { Navigation, useNavigation } from '@/widgets';
 import { PROJECT } from '@/app/shared';
 
-export function ProjectSection() {
+export default function ProjectSection() {
   const { sectionRef } = useRenderAnimation();
   const { activeItem, isAnimating, changeItem } = useNavigation(PROJECT);
   const { projectRef } = useProjectAnimation(activeItem);

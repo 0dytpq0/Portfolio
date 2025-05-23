@@ -1,9 +1,16 @@
-import { AboutSection } from './_aboutSection/_ui/AboutSection';
-import MoreSection from './_moreSection/_ui/MoreSection';
+import dynamic from 'next/dynamic';
 import NeonParticles from './_neonParticle/_ui/NeonParticles';
-import { ProjectSection } from './_projectSection/_ui/ProjectSection';
-import { RendingSection } from './_rendingSection/_ui/RendingSection';
-import { SkillsSection } from './_skillsSection/_ui/SkillsSection';
+const ProjectSection = dynamic(
+  () => import('./_projectSection/_ui/ProjectSection')
+);
+const RendingSection = dynamic(
+  () => import('./_rendingSection/_ui/RendingSection')
+);
+const AboutSection = dynamic(() => import('./_aboutSection/_ui/AboutSection'));
+const SkillsSection = dynamic(
+  () => import('./_skillsSection/_ui/SkillsSection')
+);
+const EndSection = dynamic(() => import('./_endSection/_ui/EndSection'));
 
 export default function Home() {
   return (
@@ -13,7 +20,7 @@ export default function Home() {
       <AboutSection />
       <SkillsSection />
       <ProjectSection />
-      <MoreSection />
+      <EndSection />
     </div>
   );
 }
