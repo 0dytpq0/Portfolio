@@ -1,7 +1,8 @@
-"use client";
+'use client';
 
-import { useEffect, RefObject } from "react";
-import gsap from "gsap";
+import { RefObject } from 'react';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
 
 interface NeonEffectOptions {
   dimDuration?: number;
@@ -17,7 +18,7 @@ export const useNeonTitleEffect = (
   pElementRef: RefObject<HTMLSpanElement | null>,
   options: NeonEffectOptions = {}
 ) => {
-  useEffect(() => {
+  useGSAP(() => {
     if (!sElementRef.current || !pElementRef.current) return;
 
     const sElement = sElementRef.current;
@@ -33,8 +34,8 @@ export const useNeonTitleEffect = (
     } = options;
 
     gsap.set([sElement, pElement], {
-      textShadow: "0 0 21px #fff, 0 0 42px #0066ff",
-      color: "#ffffff",
+      textShadow: '0 0 21px #fff, 0 0 42px #0066ff',
+      color: '#ffffff',
     });
 
     const createLetterFlicker = (element: HTMLElement, delay = 0) => {
@@ -50,18 +51,18 @@ export const useNeonTitleEffect = (
       timeline.to(element, {
         opacity: 0.2,
         textShadow:
-          "0 0 1px rgba(255,255,255,0.3), 0 0 2px rgba(0,102,255,0.2)",
-        color: "#8899cc",
+          '0 0 1px rgba(255,255,255,0.3), 0 0 2px rgba(0,102,255,0.2)',
+        color: '#8899cc',
         duration: dimDuration,
-        ease: "power2.in",
+        ease: 'power2.in',
       });
 
       timeline.to(element, {
         opacity: 0.9,
-        textShadow: "0 0 21px #fff, 0 0 42px #0066ff",
-        color: "#ffffff",
+        textShadow: '0 0 21px #fff, 0 0 42px #0066ff',
+        color: '#ffffff',
         duration: brightDuration,
-        ease: "power2.out",
+        ease: 'power2.out',
       });
 
       timeline.to(element, {
@@ -71,18 +72,18 @@ export const useNeonTitleEffect = (
       timeline.to(element, {
         opacity: 0.1,
         textShadow:
-          "0 0 1px rgba(255,255,255,0.2), 0 0 2px rgba(0,102,255,0.1)",
-        color: "#7788bb",
+          '0 0 1px rgba(255,255,255,0.2), 0 0 2px rgba(0,102,255,0.1)',
+        color: '#7788bb',
         duration: dimDuration,
-        ease: "power2.in",
+        ease: 'power2.in',
       });
 
       timeline.to(element, {
         opacity: 0.9,
-        textShadow: "0 0 21px #fff, 0 0 42px #0066ff, 0 0 120px #0066ff",
-        color: "#ffffff",
+        textShadow: '0 0 21px #fff, 0 0 42px #0066ff, 0 0 120px #0066ff',
+        color: '#ffffff',
         duration: brightDuration,
-        ease: "power2.out",
+        ease: 'power2.out',
       });
 
       return timeline;
@@ -90,9 +91,6 @@ export const useNeonTitleEffect = (
 
     createLetterFlicker(sElement, sDelay);
     createLetterFlicker(pElement, pDelay);
-
-    return () => {
-      gsap.killTweensOf([sElement, pElement]);
-    };
   }, [sElementRef, pElementRef, options]);
 };
+

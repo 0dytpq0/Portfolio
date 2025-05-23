@@ -1,7 +1,8 @@
-"use client";
+'use client';
 
-import { useRef } from "react";
-import { useNeonTitleEffect } from "../_hooks/useNeonTitleEffect";
+import { useRef } from 'react';
+import { useNeonTitleEffect } from '../_hooks/useNeonTitleEffect';
+import { useTitleFlicker } from '../_hooks/useTitleFlicker';
 
 interface NeonTextProps {
   text: string;
@@ -10,18 +11,19 @@ interface NeonTextProps {
 export default function NeonTitle({ text }: NeonTextProps) {
   const sElementRef = useRef<HTMLSpanElement>(null);
   const pElementRef = useRef<HTMLSpanElement>(null);
-
+  const flickerRef = useRef<HTMLDivElement>(null);
+  useTitleFlicker(flickerRef);
   useNeonTitleEffect(sElementRef, pElementRef);
 
   const renderText = () => {
-    return text.split("").map((char, index) => {
-      if (char.toLowerCase() === "s") {
+    return text.split('').map((char, index) => {
+      if (char.toLowerCase() === 's') {
         return (
           <span key={index} ref={sElementRef}>
             {char}
           </span>
         );
-      } else if (char.toLowerCase() === "p") {
+      } else if (char.toLowerCase() === 'p') {
         return (
           <span key={index} ref={pElementRef}>
             {char}
@@ -34,10 +36,11 @@ export default function NeonTitle({ text }: NeonTextProps) {
   };
 
   return (
-    <div className="relative">
-      <h1 className="text-[170px] font-loopet text-shadow-[0_0_21px_#fff,0_0_21px_#fff,0_0_42px_#0066ff,0_0_56px_#0066ff]">
+    <div ref={flickerRef} className='relative'>
+      <h1 className='text-[170px] font-loopet text-shadow-[0_0_21px_#fff,0_0_21px_#fff,0_0_42px_#0066ff,0_0_56px_#0066ff]'>
         {renderText()}
       </h1>
     </div>
   );
 }
+
