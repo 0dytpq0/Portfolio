@@ -7,6 +7,7 @@ export const PROJECT = deepFreeze<ProjectItem[]>([
     duration: '2024.07 ~ 2024.08',
     gitHub: 'https://github.com/0dytpq0/final-project-b1',
     address: 'https://final-project-b1.vercel.app',
+    notion: 'https://final-project-b1.vercel.app',
     description:
       '사용자들에게 여행지 정보를 제공하고 여행 경험을 공유, 기록할 수 있는 플랫폼입니다. 사용자들이 자신의 여행 이야기를 작성하고 사진과 함께 공유할 수 있습니다. 반응형 디자인으로 모바일에서도 편리하게 사용 가능합니다.',
     images: [
@@ -90,6 +91,7 @@ export const PROJECT = deepFreeze<ProjectItem[]>([
     duration: '2024.012.~123',
     gitHub: 'https://github.com/0dytpq0/js_portfoilio',
     address: 'https://js-portfoilio.vercel.app/',
+    notion: 'https://js-portfoilio.vercel.app/',
     skills: [
       'TypeScript',
       'Next.js',
@@ -164,6 +166,7 @@ export const PROJECT = deepFreeze<ProjectItem[]>([
     duration: '2024.012.~123',
     gitHub: 'https://github.com/0dytpq0/js_portfoilio',
     address: 'https://js-portfoilio.vercel.app/',
+    notion: 'https://js-portfoilio.vercel.app/',
     skills: [
       'TypeScript',
       'Next.js',
@@ -238,6 +241,7 @@ export const PROJECT = deepFreeze<ProjectItem[]>([
     duration: '2024.012.~123',
     gitHub: 'https://github.com/0dytpq0/js_portfoilio',
     address: 'https://js-portfoilio.vercel.app/',
+    notion: 'https://js-portfoilio.vercel.app/',
     skills: [
       'TypeScript',
       'Next.js',

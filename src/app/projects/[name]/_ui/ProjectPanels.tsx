@@ -2,8 +2,8 @@
 
 import ReactLenis from 'lenis/react';
 import { ProjectItem } from '@/shared';
-import useProjectPanelsAnimation from './_hooks/useProjectPanelsAnimation';
-import ProjectSection from './_ui/ProjectSection';
+import useProjectPanelsAnimation from '../_hooks/useProjectPanelsAnimation';
+import ProjectSection from './ProjectSection';
 
 interface ProjectPanelsProps {
   projectIdx: number;

@@ -46,7 +46,7 @@ export function LeftSection({ projectData }: LeftSectionProps) {
           alt='notion'
           width={40}
           height={40}
-          address={projectData.more}
+          address={projectData.notion}
         />
       </div>
     </div>
