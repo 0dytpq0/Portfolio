@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { ProjectItem } from '@/shared';
 import { Navigation, useNavigation } from '@/widgets';
-import { cn } from '@/shared/lib';
+import { cn, splitSentences } from '@/shared/lib';
 
 interface RightSectionProps {
   projectData: ProjectItem;
@@ -16,7 +16,7 @@ export function RightSection({ projectData }: RightSectionProps) {
     isAnimating: isTroubleshootAnimating,
     changeItem: changeTroubleshoot,
   } = useNavigation(projectData.problems || []);
-
+  console.log(projectData);
   return (
     <div
       className={cn(
@@ -26,7 +26,7 @@ export function RightSection({ projectData }: RightSectionProps) {
       <div className='flex gap-2 justify-between'>
         <div className='flex-1 flex flex-col gap-y-2'>
           <h2 className={cn('text-2xl font-bold')}>프로젝트 소개</h2>
-          <p>{projectData.description}</p>
+          <p>{splitSentences(projectData.description)}</p>
         </div>
       </div>
       <div
@@ -36,9 +36,9 @@ export function RightSection({ projectData }: RightSectionProps) {
         )}
       >
         <div className='flex-1 max-w-[400px] flex flex-col gap-y-2'>
-          <h2 className={cn('text-2xl font-bold')}>기여 역할</h2>
+          <h2 className={cn('text-2xl font-bold')}>구현 목록</h2>
           <ul className={cn('list-disc pl-4')}>
-            {projectData.tasks.map((task, index) => (
+            {projectData.tasks?.map((task, index) => (
               <li key={index}>{task}</li>
             ))}
           </ul>
@@ -104,7 +104,7 @@ export function RightSection({ projectData }: RightSectionProps) {
             </div>
             <div className='relative aspect-auto flex-1 h-[250px] rounded-3xl'>
               <Image
-                src='/project.webp'
+                src={projectData.problems[activeTroubleshoot].image}
                 alt='project'
                 fill
                 className='object-cover rounded-3xl'

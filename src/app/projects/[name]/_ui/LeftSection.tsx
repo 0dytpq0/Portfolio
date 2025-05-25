@@ -20,7 +20,7 @@ export function LeftSection({ projectData }: LeftSectionProps) {
       </div>
       <div className='relative aspect-video w-full h-[450px] rounded-3xl'>
         <Image
-          src='/project.webp'
+          src={projectData.images[0]}
           alt='project'
           fill
           className='object-cover rounded-3xl'
@@ -34,13 +34,15 @@ export function LeftSection({ projectData }: LeftSectionProps) {
           height={40}
           address={projectData.gitHub}
         />
-        <IconButton
-          src='/skills/website.svg'
-          alt='website'
-          width={40}
-          height={40}
-          address={projectData.address}
-        />
+        {projectData.address && (
+          <IconButton
+            src='/skills/website.svg'
+            alt='website'
+            width={40}
+            height={40}
+            address={projectData.address}
+          />
+        )}
         <IconButton
           src='/skills/notion.svg'
           alt='notion'

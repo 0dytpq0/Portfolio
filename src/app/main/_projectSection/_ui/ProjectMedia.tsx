@@ -10,9 +10,7 @@ interface ProjectMediaProps {
   project: ProjectItem;
 }
 
-const ProjectMedia = React.memo(function ProjectMedia({
-  project,
-}: ProjectMediaProps) {
+const ProjectMedia = function ProjectMedia({ project }: ProjectMediaProps) {
   const { imageContainerRef } = useMediaAnimation(project.images.length);
   const images = useMemo(
     () =>
@@ -52,7 +50,7 @@ const ProjectMedia = React.memo(function ProjectMedia({
       </div>
     </div>
   );
-});
+};
 
 export default ProjectMedia;
 
