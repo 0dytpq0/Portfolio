@@ -83,7 +83,13 @@ export function RightSection({ projectData }: RightSectionProps) {
               iconize={25}
             />
           </div>
-          <div className='grid grid-cols-2 gap-4'>
+          <div
+            className={cn(
+              `grid grid-cols-2 gap-4`,
+              projectData.problems[activeTroubleshoot].image === '' &&
+                'grid-cols-1'
+            )}
+          >
             <div className='flex flex-col gap-2'>
               <div className='flex-1'>
                 <h4 className={cn('text-lg font-bold mb-2')}>원인</h4>
@@ -102,14 +108,16 @@ export function RightSection({ projectData }: RightSectionProps) {
                 </div>
               </div>
             </div>
-            <div className='relative aspect-auto flex-1 h-[250px] rounded-3xl'>
-              <Image
-                src={projectData.problems[activeTroubleshoot].image}
-                alt='project'
-                fill
-                className='object-cover rounded-3xl'
-              />
-            </div>
+            {projectData.problems[activeTroubleshoot].image !== '' && (
+              <div className='relative aspect-auto h-[250px] rounded-3xl'>
+                <Image
+                  src={projectData.problems[activeTroubleshoot].image}
+                  alt='project'
+                  fill
+                  className='object-cover rounded-3xl'
+                />
+              </div>
+            )}
           </div>
         </div>
       )}

@@ -11,21 +11,30 @@
 - **스타일링**: 반응형 디자인 원칙을 적용한 현대적인 CSS
 - **배포**: [Vercel](https://vercel.com)
 
-## 특징
+## 구현 목록
 
-- GSAP로 구현된 부드러운 페이지 전환 및 요소 애니메이션
-- 모든 기기에서 작동하는 반응형 디자인
-- 프로젝트 및 기술 쇼케이스
-- 세부 사항에 주의를 기울인 현대적인 UI/UX
+- GSAP을 활용한 네온사인 텍스트 및 메뉴 애니메이션 구현
+- FSD 아키텍처 기반 폴더 구조 설계 및 UI/로직 분리
+- 스냅 스크롤, 부드러운 섹션 이동, 반응형 웹 구현
+- 서버 컴포넌트/클라이언트 컴포넌트 분리 및 타입 안전성 개선
+-
 
-## 프로젝트 구조
+## 기술적 의사결정
 
-- `app/` - 페이지와 컴포넌트가 포함된 Next.js 앱 디렉토리
-- `public/` - 이미지 및 아이콘과 같은 정적 자산
-- `components/` - 재사용 가능한 UI 컴포넌트
-- `styles/` - 전역 스타일 및 테마 구성
-- `animations/` - GSAP 애니메이션 구성
+- **GSAP**: 복잡하고 정교한 네온 애니메이션 및 텍스트 효과 구현에 최적, 커스텀 훅 분리로 재사용성/유지보수성 향상
+- **FSD(Feature-Sliced Design)**: UI/비즈니스 로직/데이터 계층 분리, 유지보수성/확장성 확보
+- **Next.js App Router**: 서버/클라이언트 컴포넌트 분리, SSR/CSR 유연 적용, SEO/성능 최적화
+- **Tailwind CSS**: 빠른 스타일링, 네온/글레이즈 UI, 반응형/다크모드 지원
 
-## 연락처
+## 트러블슈팅 & 문제 해결
 
-질문이 있거나 프로젝트에 협업하고 싶으시면 언제든지 연락주세요!
+- **GSAP 네온 애니메이션 구현**: 글자별 ref, useGSAP/react 활용로 flicker 효과 완성
+- **FSD 아키텍처 적용**: 레이어 구분, 공통 컴포넌트화
+- **서버 컴포넌트 params 타입 문제**: Promise<{ name: string }>로 수정
+- **프로젝트 페이지 라우팅 시 스크롤 위치 고정**: GSAP ScrollTo 플러그인, 계산식 활용
+
+## 배포 및 링크
+
+- GitHub: [https://github.com/0dytpq0/portfolio](https://github.com/0dytpq0/portfolio)
+- 배포 주소: [https://joseph-portfolio-eosin.vercel.app](https://joseph-portfolio-eosin.vercel.app)
+- Notion: [https://skitter-tv-990.notion.site/Portfolio-1fef8391d64180c1b95fec84c8cb5a01?pvs=73](https://skitter-tv-990.notion.site/Portfolio-1fef8391d64180c1b95fec84c8cb5a01?pvs=73)

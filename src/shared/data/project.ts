@@ -64,14 +64,14 @@ export const PROJECT = deepFreeze<ProjectItem[]>([
         solve: [
           'Tanstack Query에서 요구하는 데이터 형식의 임시 객체를 로직 내부에 선언 후 형식을 통일시켜 Optimistic Update를 적용.',
         ],
-        image: '/project.webp',
+        image: '/travlestory/project.webp',
       },
       {
         title: '관광지별 리뷰 작성 기능',
         reason:
           '리뷰 작성 시 이미지 파일 데이터를 서버로 전송할 때 빈 파일 데이터가 전달되는 문제 발생.',
         solve: ['FormData 객체를 사용해 이미지 데이터를 서버로 전송.'],
-        image: '/project.webp',
+        image: '/travelstory/review.webp',
       },
       {
         title: '페이지 성능 최적화',
@@ -80,82 +80,107 @@ export const PROJECT = deepFreeze<ProjectItem[]>([
           '코드 스플리팅과 지연 로딩을 적용하여 초기 로딩 시간 단축.',
           '이미지 최적화와 캐싱 전략을 통해 웹 성능 점수를 크게 향상시켰습니다.',
         ],
-        image: '/project.webp',
+        image: '/travlestory/project.webp',
       },
     ],
   },
   {
     name: 'Portfolio',
-    description: '토이 프로젝트로 진행했던 기존 개인 포트폴리오 사이트입니다.',
-    images: ['/project.webp'],
-    duration: '2024.012.~123',
-    gitHub: 'https://github.com/0dytpq0/js_portfoilio',
-    address: 'https://js-portfoilio.vercel.app/',
-    notion: 'https://js-portfoilio.vercel.app/',
+    duration: '2024.03 ~ 2024.05',
+    gitHub: 'https://github.com/0dytpq0/portfolio',
+    address: 'https://joseph-portfolio-eosin.vercel.app',
+    notion:
+      'https://skitter-tv-990.notion.site/Portfolio-1fef8391d64180c1b95fec84c8cb5a01?pvs=73',
+    description:
+      '저의 기술과 경험, 프로젝트를 소개하는 리뉴얼 포트폴리오 웹사이트입니다. GSAP 기반 네온 애니메이션, FSD(Feature-Sliced Design) 아키텍처,  프로젝트·기술·트러블슈팅 등 다양한 정보 제공.',
+    images: [
+      '/portfolio/webp/mainRending.webp',
+      '/portfolio/webp/mainAbout.webp',
+      '/portfolio/webp/mainProject.webp',
+      '/portfolio/webp/mainSkills.webp',
+    ],
     skills: [
       'TypeScript',
       'Next.js',
-      'Supabase',
-      'Tanstack-Query',
+      'React 19',
+      'Tailwind CSS',
+      'GSAP',
+      'Lenis(부드러운 스크롤)',
       'Zustand',
-      'TailwindCss',
-      'Git',
       'Vercel',
+      'Git',
     ],
     tasks: [
-      '도시,나라 소개 페이지 제작',
-      '리뷰, 북마크, 일정 생성 등의 기능 구현',
-      '해당 도시의 여행지 페이지 제작',
-      '페이지 성능 최적화',
+      'GSAP을 활용한 네온사인 텍스트 및 메뉴 애니메이션 구현',
+      'FSD 아키텍처 기반 폴더 구조 설계 및 UI/로직 분리',
+      '스냅 스크롤, 부드러운 섹션 이동, 반응형 웹 구현',
+      '서버 컴포넌트/클라이언트 컴포넌트 분리 및 타입 안전성 개선',
     ],
     techDecision: [
       {
-        name: 'Tanstack Query',
+        name: 'GSAP',
         reasons: [
-          '데이터에 대한 자동 캐싱 및 리페칭 기능 및 비동기 작업의 효율적 관리',
-          '제공하는 훅들의 강력한 성능으로 인한 SSR, 낙관적 업데이트 등에 대한 간편한 구현',
+          '복잡하고 정교한 네온 애니메이션 및 텍스트 효과 구현에 최적',
+          'React와의 연동 및 커스텀 훅 분리로 재사용성/유지보수성 향상',
         ],
       },
       {
-        name: 'Supabase',
+        name: 'FSD(Feature-Sliced Design)',
         reasons: [
-          '백엔드 없이도 강력한 데이터 관리 기능 제공',
-          '오픈소스이기에 데이터 소유권 유지 가능',
+          'UI, 비즈니스 로직, 데이터 계층을 명확히 분리하여 유지보수성/확장성 확보',
+          '컴포넌트 재사용성과 협업 효율성 증대',
         ],
       },
       {
-        name: 'Zustand',
+        name: 'Next.js App Router',
         reasons: [
-          '직관적인 API로 인해 간편하게 상태 관리 가능',
-          '보일러 플레이트 코드 최소화',
+          '서버 컴포넌트와 클라이언트 컴포넌트의 분리 및 SSR/CSR 유연한 적용',
+          '동적 라우팅, SEO, 성능 최적화에 유리',
+        ],
+      },
+      {
+        name: 'Tailwind CSS',
+        reasons: [
+          '빠른 스타일링 및 네온/글레이즈 등 감각적인 UI 구현',
+          '반응형 디자인 및 다크모드 지원',
         ],
       },
     ],
     problems: [
       {
-        title: '북마크 기능',
+        title: 'GSAP 네온 애니메이션 구현',
         reason:
-          'Optimistic Update를 적용하는 도중 입력받는 데이터 형식이 요구하는 형식과 맞지 않아 에러 발생.',
+          '텍스트의 특정 글자만 번갈아가며 깜빡이는 네온 효과, 메뉴 오픈 시 네온 불빛 애니메이션 등 고난이도 애니메이션 구현에 어려움.',
         solve: [
-          'Tanstack Query에서 요구하는 데이터 형식의 임시 객체를 로직 내부에 선언 후 형식을 통일시켜 Optimistic Update를 적용.',
+          'GSAP 커스텀 훅 분리, useGSAP/react 활용, 글자별 ref 관리로 원하는 네온 flicker 효과 완성.',
         ],
-        image: '/project.webp',
+        image: '/portfolio/rending.gif',
       },
       {
-        title: '관광지별 리뷰 작성 기능',
+        title: 'FSD 아키텍처 적용',
         reason:
-          '리뷰 작성 시 이미지 파일 데이터를 서버로 전송할 때 빈 파일 데이터가 전달되는 문제 발생.',
-        solve: ['FormData 객체를 사용해 이미지 데이터를 서버로 전송.'],
-        image: '/project.webp',
+          '폴더 구조 및 역할 분리 기준 잡기, 기존 Next.js 구조와의 통합에서 혼란 발생.',
+        solve: [
+          'app, widgets, features, entities, shared 등 FSD 레이어 구분, UI/로직/데이터 분리, 네비게이션 등 공통 컴포넌트화.',
+        ],
+        image: '',
       },
       {
-        title: '페이지 성능 최적화',
-        reason: '페이지 로딩 속도가 느려 사용자 경험에 부정적인 영향을 미침.',
+        title: '서버 컴포넌트 params 타입 문제',
+        reason:
+          '서버 컴포넌트의 prams 타입이 변경되어 타입 오류 및 데이터 접근 혼란.',
+        solve: ['문서 확인 후 Promise<{ name: string }>로 수정하여 해결'],
+        image: '',
+      },
+      {
+        title: '프로젝트 페이지 라우팅 시 스크롤 위치 고정',
+        reason:
+          'useEffect, scrollIntoview, Lenis.scrollTo 등이 적용이 제대로 되지 않음.',
         solve: [
-          '코드 스플리팅과 지연 로딩을 적용하여 초기 로딩 시간 단축.',
-          '이미지 최적화와 캐싱 전략을 통해 웹 성능 점수를 크게 향상시켰습니다.',
+          'GSAP의 ScrollTo 플러그인 활용',
+          'ID 기반으로 이동 시 제대로 작동하지 않아, 계산식을 활용',
         ],
-        image: '/project.webp',
+        image: '/portfolio/gif/routing.gif',
       },
     ],
   },
@@ -167,7 +192,8 @@ export const PROJECT = deepFreeze<ProjectItem[]>([
     duration: '2024.01 ~ 2024.02',
     gitHub: 'https://github.com/0dytpq0/js_portfoilio',
     address: 'https://js-portfoilio.vercel.app/',
-    notion: '',
+    notion:
+      'https://skitter-tv-990.notion.site/Js-Portfolio-1fef8391d641807594e5e89d93da51f1',
     skills: ['TypeScript', 'Next.js', 'React', 'Tailwind CSS', 'Git', 'Vercel'],
     tasks: [
       '자기소개, 기술스택, 프로젝트, 경험, 교육 등 다양한 섹션의 포트폴리오 메인 페이지 구현',
