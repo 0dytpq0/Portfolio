@@ -17,12 +17,12 @@ export interface ProjectItem {
   name: string;
   duration: string;
   gitHub: string;
-  address: string;
+  address?: string;
   notion: string;
   description: string;
   images: string[];
   skills: string[];
   tasks: string[];
   techDecision: TechDecision[];
-  problems: Problem[];
+  problems?: Problem[];
 }

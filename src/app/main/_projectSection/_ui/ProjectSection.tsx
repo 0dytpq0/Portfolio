@@ -36,7 +36,7 @@ const ProjectSection = React.memo(function ProjectSection() {
 
       <div
         ref={projectRef}
-        className='w-full h-full flex items-center gap-x-40 z-10 px-30 mx-auto max-w-[1366px]'
+        className='w-full h-full flex items-center gap-x-20 z-10 px-30 mx-auto max-w-[1366px]'
       >
         <ProjectMedia project={currentProject} />
 

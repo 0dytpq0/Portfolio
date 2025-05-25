@@ -15,7 +15,7 @@ export function RightSection({ projectData }: RightSectionProps) {
     activeItem: activeTroubleshoot,
     isAnimating: isTroubleshootAnimating,
     changeItem: changeTroubleshoot,
-  } = useNavigation(projectData.problems);
+  } = useNavigation(projectData.problems || []);
 
   return (
     <div
@@ -29,8 +29,13 @@ export function RightSection({ projectData }: RightSectionProps) {
           <p>{projectData.description}</p>
         </div>
       </div>
-      <div className='flex gap-2 justify-between'>
-        <div className='flex flex-col gap-y-2'>
+      <div
+        className={cn(
+          `flex gap-2 justify-between`,
+          projectData.problems || 'flex-col gap-y-4'
+        )}
+      >
+        <div className='flex-1 max-w-[400px] flex flex-col gap-y-2'>
           <h2 className={cn('text-2xl font-bold')}>기여 역할</h2>
           <ul className={cn('list-disc pl-4')}>
             {projectData.tasks.map((task, index) => (
@@ -52,7 +57,7 @@ export function RightSection({ projectData }: RightSectionProps) {
               iconize={25}
             />
           </div>
-          <div className='relative min-h-[120px] flex items-center'>
+          <div className='relative min-h-[120px] flex'>
             <p className={cn('transition-opacity duration-500')}>
               {projectData.techDecision[activeItem].reasons.map(
                 (reason, index) => (
@@ -63,49 +68,51 @@ export function RightSection({ projectData }: RightSectionProps) {
           </div>
         </div>
       </div>
-      <div className='flex flex-col gap-2'>
-        <div className='flex justify-between items-center'>
-          <h2 className={cn('text-2xl font-bold')}>
-            트러블 슈팅 - {projectData.problems[activeTroubleshoot].title}
-          </h2>
-          <Navigation
-            onPrev={() => changeTroubleshoot('prev')}
-            onNext={() => changeTroubleshoot('next')}
-            isDisabled={isTroubleshootAnimating}
-            wrapperClassName='flex justify-end gap-4'
-            buttonClassName='w-8 h-8'
-            iconize={25}
-          />
-        </div>
-        <div className='grid grid-cols-2 gap-4'>
-          <div className='flex flex-col gap-2'>
-            <div className='flex-1'>
-              <h4 className={cn('text-lg font-bold mb-2')}>원인</h4>
-              <div className='min-h-[100px]'>
-                <p className={cn('transition-opacity duration-500')}>
-                  {projectData.problems[activeTroubleshoot].reason}
-                </p>
-              </div>
-            </div>
-            <div className='flex-1'>
-              <h4 className={cn('text-lg font-bold mb-2')}>해결</h4>
-              <div className='min-h-[100px]'>
-                <p className={cn('transition-opacity duration-500')}>
-                  {projectData.problems[activeTroubleshoot].solve}
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className='relative aspect-auto flex-1 h-[250px] rounded-3xl'>
-            <Image
-              src='/project.webp'
-              alt='project'
-              fill
-              className='object-cover rounded-3xl'
+      {projectData.problems && (
+        <div className='flex flex-col gap-2'>
+          <div className='flex justify-between items-center'>
+            <h2 className={cn('text-2xl font-bold')}>
+              트러블 슈팅 - {projectData.problems[activeTroubleshoot].title}
+            </h2>
+            <Navigation
+              onPrev={() => changeTroubleshoot('prev')}
+              onNext={() => changeTroubleshoot('next')}
+              isDisabled={isTroubleshootAnimating}
+              wrapperClassName='flex justify-end gap-4'
+              buttonClassName='w-8 h-8'
+              iconize={25}
             />
           </div>
+          <div className='grid grid-cols-2 gap-4'>
+            <div className='flex flex-col gap-2'>
+              <div className='flex-1'>
+                <h4 className={cn('text-lg font-bold mb-2')}>원인</h4>
+                <div className='min-h-[100px]'>
+                  <p className={cn('transition-opacity duration-500')}>
+                    {projectData.problems[activeTroubleshoot].reason}
+                  </p>
+                </div>
+              </div>
+              <div className='flex-1'>
+                <h4 className={cn('text-lg font-bold mb-2')}>해결</h4>
+                <div className='min-h-[100px]'>
+                  <p className={cn('transition-opacity duration-500')}>
+                    {projectData.problems[activeTroubleshoot].solve}
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className='relative aspect-auto flex-1 h-[250px] rounded-3xl'>
+              <Image
+                src='/project.webp'
+                alt='project'
+                fill
+                className='object-cover rounded-3xl'
+              />
+            </div>
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 }
