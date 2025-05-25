@@ -86,7 +86,7 @@ export const PROJECT = deepFreeze<ProjectItem[]>([
   },
   {
     name: 'Portfolio',
-    duration: '2024.03 ~ 2024.05',
+    duration: '2024.05.02 ~ 2024.05.25',
     gitHub: 'https://github.com/0dytpq0/portfolio',
     address: 'https://joseph-portfolio-eosin.vercel.app',
     notion:
@@ -185,10 +185,10 @@ export const PROJECT = deepFreeze<ProjectItem[]>([
     ],
   },
   {
-    name: 'js_portfolio',
+    name: 'Js_Portfolio',
     description:
       'Next.js와 TypeScript로 개발된 개인 포트폴리오 사이트입니다. 자기소개, 프로젝트, 경험, 기술스택, 문제해결 경험 등 다양한 정보를 한눈에 볼 수 있도록 구성했습니다.',
-    images: ['/project.webp'],
+    images: ['/jsPortfolio/main.webp', '/jsPortfolio/modal.webp'],
     duration: '2024.01 ~ 2024.02',
     gitHub: 'https://github.com/0dytpq0/js_portfoilio',
     address: 'https://js-portfoilio.vercel.app/',
@@ -213,43 +213,33 @@ export const PROJECT = deepFreeze<ProjectItem[]>([
     ],
   },
   {
-    name: 'Kays',
-    description: '토이 프로젝트로 진행했던 기존 개인 포트폴리오 사이트입니다.',
+    name: 'TechBridge',
+    description: '개인 과외를 연결해주는 웹앱 플랫폼 사이드 프로젝트입니다.',
     images: ['/project.webp'],
-    duration: '2024.012.~123',
-    gitHub: 'https://github.com/0dytpq0/js_portfoilio',
-    address: 'https://js-portfoilio.vercel.app/',
-    notion: 'https://js-portfoilio.vercel.app/',
+    duration: '2024.5.~ 진행중',
+    gitHub: 'https://github.com/Tech-Bridge00',
+    address: '',
+    notion: '',
     skills: [
       'TypeScript',
-      'Next.js',
-      'Supabase',
+      'React.js',
+      'React Native',
       'Tanstack-Query',
       'Zustand',
       'TailwindCss',
       'Git',
-      'Vercel',
     ],
-    tasks: [
-      '도시,나라 소개 페이지 제작',
-      '리뷰, 북마크, 일정 생성 등의 기능 구현',
-      '해당 도시의 여행지 페이지 제작',
-      '페이지 성능 최적화',
-    ],
+    tasks: ['알림 서비스 구현', '1:1 채팅 서비스 구현'],
     techDecision: [
       {
-        name: 'Tanstack Query',
+        name: 'React.js',
         reasons: [
-          '데이터에 대한 자동 캐싱 및 리페칭 기능 및 비동기 작업의 효율적 관리',
-          '제공하는 훅들의 강력한 성능으로 인한 SSR, 낙관적 업데이트 등에 대한 간편한 구현',
+          '웹앱 개발에 있어, React Native를 쓰기보단 학습을 목적으로 React.js를 선택하였고 추후 Native로 웹앱 변환 예정입니다.',
         ],
       },
       {
-        name: 'Supabase',
-        reasons: [
-          '백엔드 없이도 강력한 데이터 관리 기능 제공',
-          '오픈소스이기에 데이터 소유권 유지 가능',
-        ],
+        name: 'Tanstack Query',
+        reasons: ['강력한 훅과 캐싱기능을 활용하여 다양한 전략 수립 가능'],
       },
       {
         name: 'Zustand',
