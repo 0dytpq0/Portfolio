@@ -7,7 +7,7 @@ import { useTabIndicator } from '../_hooks/useTabIndicator';
 import { SkillTabs } from './SkillTabs';
 import { SkillsContent } from './SkillsContent';
 
-export default function SkillsSection() {
+const SkillsSection = React.memo(function SkillsSection() {
   const [activeCategory, setActiveCategory] =
     useState<SkillCategory>('language');
 
@@ -52,5 +52,7 @@ export default function SkillsSection() {
       </div>
     </section>
   );
-}
+});
+
+export default SkillsSection;
 

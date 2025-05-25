@@ -1,22 +1,29 @@
 'use client';
 
-import { useRef } from 'react';
+import React, { useRef, useMemo } from 'react';
 import { useParticles } from '../_hooks/useParticles';
 
-export default function NeonParticles() {
+const NeonParticles = React.memo(function NeonParticles() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   // 네온 파티클 훅 사용
-  useParticles(containerRef as React.RefObject<HTMLDivElement>, {
-    colors: ['#0066ff', '#00ffff', '#ff00ff', '#00ff00', '#ffffff'],
-    poolSize: 150,
-    minSize: 1,
-    maxSize: 5,
-    minSpeed: 1,
-    maxSpeed: 2,
-    spawnRate: 0.1,
-    initialCount: 20,
-  });
+  const particleOptions = useMemo(
+    () => ({
+      colors: ['#0066ff', '#00ffff', '#ff00ff', '#00ff00', '#ffffff'],
+      poolSize: 150,
+      minSize: 1,
+      maxSize: 5,
+      minSpeed: 1,
+      maxSpeed: 2,
+      spawnRate: 0.1,
+      initialCount: 20,
+    }),
+    []
+  );
+  useParticles(
+    containerRef as React.RefObject<HTMLDivElement>,
+    particleOptions
+  );
 
   return (
     <div
@@ -25,4 +32,7 @@ export default function NeonParticles() {
       aria-hidden='true'
     />
   );
-}
+});
+
+export default NeonParticles;
+

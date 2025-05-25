@@ -1,5 +1,7 @@
 import dynamic from 'next/dynamic';
-import NeonParticles from './_neonParticle/_ui/NeonParticles';
+const NeonParticles = dynamic(
+  () => import('./_neonParticle/_ui/NeonParticles')
+);
 const ProjectSection = dynamic(
   () => import('./_projectSection/_ui/ProjectSection')
 );

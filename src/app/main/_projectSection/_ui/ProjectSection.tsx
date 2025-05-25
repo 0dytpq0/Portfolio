@@ -2,14 +2,14 @@
 
 import React from 'react';
 
-import { ProjectMedia } from './ProjectMedia';
+import ProjectMedia from './ProjectMedia';
 import { ProjectDetails } from './ProjectDetails';
 import { useRenderAnimation } from '../_hooks/useRenderAnimation';
 import { useProjectAnimation } from '../_hooks/useProjectAnimation';
 import { Navigation, useNavigation } from '@/widgets';
 import { PROJECT } from '@/shared';
 
-export default function ProjectSection() {
+const ProjectSection = React.memo(function ProjectSection() {
   const { sectionRef } = useRenderAnimation();
   const { activeItem, isAnimating, changeItem } = useNavigation(PROJECT);
   const { projectRef } = useProjectAnimation(activeItem);
@@ -44,4 +44,6 @@ export default function ProjectSection() {
       </div>
     </section>
   );
-}
+});
+
+export default ProjectSection;
