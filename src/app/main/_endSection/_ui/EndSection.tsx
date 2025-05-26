@@ -14,7 +14,6 @@ export default function EndSection() {
 
   return (
     <section
-      id='more'
       ref={sectionRef}
       className='w-full h-dvh snap-start relative flex items-center max-w-[1360px] mx-auto'
     >
