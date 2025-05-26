@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
 
 interface UseMediaAnimationOptions {
   duration?: number;
@@ -18,7 +18,7 @@ export const useMediaAnimation = (
     if (!imageContainerRef.current) return;
 
     const targets = imageContainerRef.current.querySelectorAll(
-      ".project-image-item"
+      '.project-image-item'
     );
     const numberOfTargets = targets.length;
 
