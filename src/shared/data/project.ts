@@ -11,11 +11,11 @@ export const PROJECT = deepFreeze<ProjectItem[]>([
     description:
       '사용자들에게 여행지 정보를 제공하고 여행 경험을 공유, 기록할 수 있는 플랫폼입니다. 사용자들이 자신의 여행 이야기를 작성하고 사진과 함께 공유할 수 있습니다. 반응형 디자인으로 모바일에서도 편리하게 사용 가능합니다.',
     images: [
-      '/travelstory/main.webp',
-      '/travelstory/detail.webp',
-      '/travelstory/list.webp',
-      '/travelstory/review.webp',
-      '/travelstory/plan.webp',
+      '/travelstory/webp/main.webp',
+      '/travelstory/webp/detail.webp',
+      '/travelstory/webp/list.webp',
+      '/travelstory/webp/review.webp',
+      '/travelstory/webp/plan.webp',
     ],
     skills: [
       'TypeScript',
@@ -64,14 +64,14 @@ export const PROJECT = deepFreeze<ProjectItem[]>([
         solve: [
           'Tanstack Query에서 요구하는 데이터 형식의 임시 객체를 로직 내부에 선언 후 형식을 통일시켜 Optimistic Update를 적용.',
         ],
-        image: '/travlestory/project.webp',
+        image: '/travelstory/gif/bookmark.gif',
       },
       {
         title: '관광지별 리뷰 작성 기능',
         reason:
           '리뷰 작성 시 이미지 파일 데이터를 서버로 전송할 때 빈 파일 데이터가 전달되는 문제 발생.',
         solve: ['FormData 객체를 사용해 이미지 데이터를 서버로 전송.'],
-        image: '/travelstory/review.webp',
+        image: '/travelstory/gif/review.gif',
       },
       {
         title: '페이지 성능 최적화',
@@ -80,7 +80,7 @@ export const PROJECT = deepFreeze<ProjectItem[]>([
           '코드 스플리팅과 지연 로딩을 적용하여 초기 로딩 시간 단축.',
           '이미지 최적화와 캐싱 전략을 통해 웹 성능 점수를 크게 향상시켰습니다.',
         ],
-        image: '/travlestory/project.webp',
+        image: '',
       },
     ],
   },
@@ -154,7 +154,7 @@ export const PROJECT = deepFreeze<ProjectItem[]>([
         solve: [
           'GSAP 커스텀 훅 분리, useGSAP/react 활용, 글자별 ref 관리로 원하는 네온 flicker 효과 완성.',
         ],
-        image: '/portfolio/rending.gif',
+        image: '/portfolio/gif/rending.gif',
       },
       {
         title: 'FSD 아키텍처 적용',
