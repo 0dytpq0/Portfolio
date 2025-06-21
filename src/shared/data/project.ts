@@ -214,67 +214,89 @@ export const PROJECT = deepFreeze<ProjectItem[]>([
     ],
   },
   {
-    name: 'TechBridge',
-    description: '개인 과외를 연결해주는 웹앱 플랫폼 사이드 프로젝트입니다.',
-    images: ['/project.webp'],
-    duration: '2024.5.~ 진행중',
-    gitHub: 'https://github.com/Tech-Bridge00',
-    address: '',
-    notion: '',
+    name: 'PlayWithMe',
+    description:
+      '발로란트 듀오 매칭 서비스이며, 꾸준히 버전 업데이트를 진행중입니다.',
+    images: [
+      '/playwithme/main.webp',
+      '/playwithme/home.webp',
+      '/playwithme/chat.webp',
+      '/playwithme/duo.webp',
+      '/playwithme/duoList.webp',
+    ],
+    duration: '2025.05.~ 2025.06',
+    gitHub: 'https://github.com/0dytpq0/Play-With-Me',
+    address: 'play-with-me-topaz.vercel.app',
+    notion:
+      'https://skitter-tv-990.notion.site/Play-With-Me-ver-1-213f8391d64180c8a4f9d43e5876881f',
     skills: [
       'TypeScript',
       'React.js',
-      'React Native',
       'Tanstack-Query',
-      'Zustand',
+      'React-Hook-Form',
+      'ZOD',
       'TailwindCss',
+      'Supabase',
       'Git',
     ],
-    tasks: ['알림 서비스 구현', '1:1 채팅 서비스 구현'],
+    tasks: ['1:1 듀오 매칭 서비스', '1:1 채팅 서비스', '유저 정보 관리'],
     techDecision: [
       {
-        name: 'React.js',
+        name: 'Next.js',
         reasons: [
-          '웹앱 개발에 있어, React Native를 쓰기보단 학습을 목적으로 React.js를 선택하였고 추후 Native로 웹앱 변환 예정입니다.',
+          '서버 컴포넌트를 활용한 성능 최적화',
+          'SSR/SSG를 활용한 SEO 최적화',
+          'App router를 활용한 성능 최적화',
         ],
       },
       {
         name: 'Tanstack Query',
-        reasons: ['강력한 훅과 캐싱기능을 활용하여 다양한 전략 수립 가능'],
+        reasons: [
+          '캐싱 및 여러 기능을 활용한 비동기 데이터 관리',
+          '낙관적 업데이트, 무한 스크롤 등에 대해 제공되는 훅을 활용하기 위함',
+        ],
       },
       {
-        name: 'Zustand',
+        name: 'ReactHookForm + zod',
+        reasons: ['타입 안전성 향상', '폼 데이터 관리'],
+      },
+      {
+        name: 'Supabase',
         reasons: [
-          '직관적인 API로 인해 간편하게 상태 관리 가능',
-          '보일러 플레이트 코드 최소화',
+          '백엔드 없이도 강력한 데이터 관리 기능 제공',
+          '채팅을 위한 RealTime 서비스 제공',
         ],
       },
     ],
     problems: [
       {
-        title: '북마크 기능',
+        title: 'Next.js 15버전 async Dynamic APIs',
         reason:
-          'Optimistic Update를 적용하는 도중 입력받는 데이터 형식이 요구하는 형식과 맞지 않아 에러 발생.',
+          'Dynamic routing에서 params를 받을 때 await를 써야한다는 경고 문구 표시',
         solve: [
-          'Tanstack Query에서 요구하는 데이터 형식의 임시 객체를 로직 내부에 선언 후 형식을 통일시켜 Optimistic Update를 적용.',
+          '공식문서의 async Dynamic APIs를 참고하여 params를 Promise 타입으로 감싸서 사용해야 하는 점을 적용',
         ],
-        image: '/project.webp',
+        image: '',
       },
       {
-        title: '관광지별 리뷰 작성 기능',
+        title: 'Next.js Parallel Route 모달 닫힘 문제',
         reason:
-          '리뷰 작성 시 이미지 파일 데이터를 서버로 전송할 때 빈 파일 데이터가 전달되는 문제 발생.',
-        solve: ['FormData 객체를 사용해 이미지 데이터를 서버로 전송.'],
-        image: '/project.webp',
+          '실제 URL에 슬롯의 경로가 포함되지 않아도 모달이 닫히지 않는 현상 발생',
+        solve: [
+          'layout의 리렌더링을 해줄 방안을 모색하였으나 client 컴포넌트로 수정하는게 아니면 힘듦을 확인',
+          '특정 컴포넌트를 Modal 컴포넌트로 구현하여 모달이 닫힌 후 URL을 이동하도록 수정',
+        ],
+        image: '',
       },
       {
-        title: '페이지 성능 최적화',
-        reason: '페이지 로딩 속도가 느려 사용자 경험에 부정적인 영향을 미침.',
+        title: 'Supabase Trigger 구현',
+        reason:
+          'route handler에서 많은 분기를 처리하려다 보니 성능 저하가 심하게 되는 것같음을 느낌',
         solve: [
-          '코드 스플리팅과 지연 로딩을 적용하여 초기 로딩 시간 단축.',
-          '이미지 최적화와 캐싱 전략을 통해 웹 성능 점수를 크게 향상시켰습니다.',
+          'Supabase의 Trigger를 통해 부하를 줄여줄 수 있을거라 판단',
+          'AI의 도움을 받아 Trigger를 구현하여 성능을 개선',
         ],
-        image: '/project.webp',
+        image: '',
       },
     ],
   },
